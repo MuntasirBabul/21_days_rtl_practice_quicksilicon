@@ -1,8 +1,8 @@
-class dff_scoreboard_cls extends uvm_scoreboard;
+class dff_sboard_cls extends uvm_scoreboard;
 
-   `uvm_component_utils(dff_scoreboard_cls)
+   `uvm_component_utils(dff_sboard_cls)
 
-   uvm_analysis_imp #(dff_mon_txn_cls,dff_scoreboard_cls) imp;
+   uvm_analysis_imp #(dff_mon_txn_cls,dff_sboard_cls) imp;
 
    bit exp_q_norst;
 
