@@ -21,7 +21,7 @@ class dff_test_cls extends uvm_test;
 
   virtual function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    dff_env_obj = env::type_id::create("dff_env_obj", this);
+    dff_env_obj = dff_env_cls::type_id::create("dff_env_obj", this);
     if (!uvm_config_db#(virtual dff_if)::get(this, "", "dff_vif", vif))
       `uvm_fatal("TEST", "Did not get vif")
       uvm_config_db#(virtual dff_if)::set(this, "dff_env_obj.dff_agent_obj.*", "dff_vif", vif);
@@ -32,8 +32,8 @@ class dff_test_cls extends uvm_test;
     phase.raise_objection(this);
     apply_reset();
 
-    seq.randomize();
-    seq.start(dff_env_obj.dff_agent_obj.dff_seqr_obj);
+    dff_rand_seq_obj.randomize();
+    dff_rand_seq_obj.start(dff_env_obj.dff_agent_obj.dff_seqr_obj);
     phase.drop_objection(this);
   endtask
 

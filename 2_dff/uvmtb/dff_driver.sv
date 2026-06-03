@@ -16,8 +16,9 @@ class dff_drv_cls extends uvm_driver #(dff_txn_drv_cls);
 
   virtual task run_phase(uvm_phase phase);
     super.run_phase(phase);
-    dff_txn_drv_cls dff_txn_drv_obj;
+    
     forever begin
+      dff_txn_drv_cls dff_txn_drv_obj;
       `uvm_info("DRV", $sformatf("Wait for item from sequencer"), UVM_LOW)
       seq_item_port.get_next_item(dff_txn_drv_obj);
       drive_item(dff_txn_drv_obj);

@@ -1,4 +1,4 @@
-class dff_env_cls extends uvm_dff_env_cls;
+class dff_env_cls extends uvm_env;
   
   `uvm_component_utils(dff_env_cls)
   
@@ -11,12 +11,12 @@ class dff_env_cls extends uvm_dff_env_cls;
 
   virtual function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    dff_agent_obj = agent::type_id::create("dff_agent_obj", this);
-    dff_sboard_obj = scoreboard::type_id::create("dff_sboard_obj", this);
+    dff_agent_obj = dff_agent_cls::type_id::create("dff_agent_obj", this);
+    dff_sboard_obj = dff_sboard_cls::type_id::create("dff_sboard_obj", this);
   endfunction
 
   virtual function void connect_phase(uvm_phase phase);
     super.connect_phase(phase);
-    dff_agent_obj.m0.mon_analysis_port.connect(dff_sboard_obj.m_analysis_imp);
+    dff_agent_obj.dff_mon_obj.mon_analysis_port.connect(dff_sboard_obj.imp);
   endfunction
 endclass

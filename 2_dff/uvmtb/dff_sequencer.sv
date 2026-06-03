@@ -1,4 +1,5 @@
-class dff_seqr_cls extends uvm_sequencer #(dff_drv_txn_cls);
+
+class dff_seqr_cls extends uvm_sequencer #(dff_txn_drv_cls);
 
    `uvm_component_utils(dff_seqr_cls)
 

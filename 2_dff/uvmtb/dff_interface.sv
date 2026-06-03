@@ -9,6 +9,6 @@ interface dff_if;
    logic q_async_rising_clk_falling_reset_o;
    logic q_async_falling_clk_falling_reset_o;
    logic q_async_falling_clk_rising_reset_o;
-   logic q_syncrst_o;
+   logic q_sync_reset_o;
 
 endinterface
