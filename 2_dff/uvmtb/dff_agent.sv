@@ -20,6 +20,7 @@ class dff_agent_cls extends uvm_agent;
 
   endfunction
 
+  // Connect the driver to the sequencer
   virtual function void connect_phase(uvm_phase phase);
     super.connect_phase(phase);
     dff_drv_obj.seq_item_port.connect(dff_seqr_obj.seq_item_export);

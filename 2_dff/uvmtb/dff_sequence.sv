@@ -11,7 +11,7 @@ class dff_rand_seq_cls extends uvm_sequence #(dff_txn_drv_cls);
 
   rand int num; // Config total number of items to be sent
 
-  constraint c1 { num inside {[2:5]}; }
+  constraint c1 { num inside {10}; }
 
   virtual task body();
     for (int i = 0; i < num; i ++) begin

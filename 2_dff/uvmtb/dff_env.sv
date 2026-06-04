@@ -14,7 +14,8 @@ class dff_env_cls extends uvm_env;
     dff_agent_obj = dff_agent_cls::type_id::create("dff_agent_obj", this);
     dff_sboard_obj = dff_sboard_cls::type_id::create("dff_sboard_obj", this);
   endfunction
-
+  
+  // Connect the monitor to the scoreboard
   virtual function void connect_phase(uvm_phase phase);
     super.connect_phase(phase);
     dff_agent_obj.dff_mon_obj.mon_analysis_port.connect(dff_sboard_obj.imp);

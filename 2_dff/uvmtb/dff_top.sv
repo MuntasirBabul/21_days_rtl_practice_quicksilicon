@@ -23,35 +23,23 @@ module top;
    // DUT instance
    // -----------------------
    dff_examples dut (
-      .clk(clk),
-      .reset(vif.reset),
-      .d_i(vif.d_i),
-      .q_norst_o(vif.q_norst_o),
-
-      .q_async_rising_clk_rising_reset_o(
-         vif.q_async_rising_clk_rising_reset_o
-      ),
-
-      .q_async_falling_clk_rising_reset_o(
-         vif.q_async_falling_clk_rising_reset_o
-      ),
-
-      .q_async_falling_clk_falling_reset_o(
-         vif.q_async_falling_clk_falling_reset_o
-      ),
-
-      .q_async_rising_clk_falling_reset_o(
-         vif.q_async_rising_clk_falling_reset_o
-      ),
-
-      .q_sync_reset_o(vif.q_sync_reset_o)
+      .clk                                      (clk                                    ),
+      .reset                                    (vif.reset                              ),
+      .d_i                                      (vif.d_i                                ),
+      .q_norst_o                                (vif.q_norst_o                          ),
+      .q_async_rising_clk_rising_reset_o        (vif.q_async_rising_clk_rising_reset_o  ),
+      .q_async_falling_clk_rising_reset_o       (vif.q_async_falling_clk_rising_reset_o ),
+      .q_async_falling_clk_falling_reset_o      (vif.q_async_falling_clk_falling_reset_o),
+      .q_async_rising_clk_falling_reset_o       (vif.q_async_rising_clk_falling_reset_o ),
+      .q_sync_reset_o                           (vif.q_sync_reset_o                     )
    );
 
    // -----------------------
    // UVM start-up
    // -----------------------
    initial begin
-
+      `uvm_info("INFO-TOP", "Starting UVM testbench", UVM_LOW)
+      `uvm_info("INFO-TOP", "Calling dff_test_cls, phases will start", UVM_LOW)
       // Give interface to UVM world
       uvm_config_db#(virtual dff_if)::set(null, "*", "dff_vif", vif);
 
