@@ -3,12 +3,14 @@
 # Ignore an entire folder (always add a trailing slash)
 run_sim_questa
 work
+__pycache__
+sim_build
 
 # Ignore all files matching an extension
-run.log
+*.log
 *.cr.mti
 *.wlf
 *.mpf
-
-
+*.vcd
+*.xml
 
