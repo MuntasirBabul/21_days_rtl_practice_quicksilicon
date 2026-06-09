@@ -1,0 +1,11 @@
+# Ignore a specific file
+
+# Ignore an entire folder (always add a trailing slash)
+*/*/work
+
+# Ignore all files matching an extension
+*/*/.log
+*/*/.mti
+*/*/.wlf
+
+
