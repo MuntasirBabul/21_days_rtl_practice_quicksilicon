@@ -47,9 +47,9 @@ begin
     EQL: 
             begin 
               if (a_i == b_i)
-                alu_o = 1'b1;
+                alu_o = 8'b1;
               else 
-                alu_o = 1'b0;
+                alu_o = 8'b0;
             end
     
     default: alu_o = 'b0;
