@@ -7,8 +7,8 @@
 TOPLEVEL_LANG     ?= verilog
 SIM               ?= verilator
 
-DESIGN            := edge_detector
-PROJECT_DIR       := 3_$(DESIGN)
+DESIGN            := simple_alu
+PROJECT_DIR       := 4_$(DESIGN)
 RTL_DIR           := $(PROJECT_DIR)/rtl
 VERIF_DIR         := $(PROJECT_DIR)/cocotb
 
@@ -52,6 +52,11 @@ run_lint:
 # Clean Target
 clean::
 	@echo "::::::::: Cleaning build and output files :::::::::::"
-	@rm -rfv sim_build __pycache__ *.vcd *.xml *.log obj_dir
+	@rm -rfv $(VERIF_DIR)/sim_build \
+           $(VERIF_DIR)/__pycache__ \
+           $(VERIF_DIR)/*.vcd \
+           $(VERIF_DIR)/*.xml \
+           $(VERIF_DIR)/*.log \
+           $(VERIF_DIR)/obj_dir
 
 .PHONY: run clean
