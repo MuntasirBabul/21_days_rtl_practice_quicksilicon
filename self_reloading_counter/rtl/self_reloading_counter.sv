@@ -8,7 +8,7 @@ module self_reloading_counter
 );
 
   always@(posedge clk or negedge reset) begin
-    if (reset == 'b1) begin
+    if (reset == 'b0) begin
       count_o <= 'b0;
     end
     else begin
