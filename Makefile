@@ -7,14 +7,10 @@
 TOPLEVEL_LANG     ?= verilog
 SIM               ?= verilator
 
-DESIGN            := simple_alu
-PROJECT_DIR       := 4_$(DESIGN)
+DESIGN            ?= 
+PROJECT_DIR       := $(DESIGN)
 RTL_DIR           := $(PROJECT_DIR)/rtl
 VERIF_DIR         := $(PROJECT_DIR)/cocotb
-
-# cocotb v2 versions
-#COCOTB_TEST_MODULES = test_mux ; # cocotb python file name
-#COCOTB_TOPLEVEL = $(DESIGN)    ; # design top
 
 # cocotb v1 versions
 MODULE            := test_$(DESIGN)
@@ -41,8 +37,8 @@ include $(shell cocotb-config --makefiles)/Makefile.sim
 run_sv:
 	@verilator -cc -Wno-NULLPORT -Wno-COMBDLY -Wno-PINMISSING -Wno-MODDUP --exe --build --timing --binary $(VERILOG_SOURCES) -I$(RTL_DIR) --top $(DESIGN)   -j `nproc`
 
-# Run cocotb test
 run_sim: clean
+	@echo "Running cocotb testbench verification with $(DESIGN)"
 	@make SIM=$(SIM) | tee run_sim_$(DESIGN).log
 
 # Check linting
