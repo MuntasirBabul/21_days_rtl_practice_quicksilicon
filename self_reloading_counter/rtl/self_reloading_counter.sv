@@ -12,7 +12,7 @@ module self_reloading_counter
       count_o <= 'b0;
     end
     else begin
-      count_o = load_i ? load_val_i : (count_o == 4'hF) ? load_val_i : count_o + 'b1;
+      count_o <= load_i ? load_val_i : (count_o == 4'hF) ? load_val_i : count_o + 'b1;
     end
 
 

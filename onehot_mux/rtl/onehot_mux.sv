@@ -45,7 +45,7 @@ module onehot_mux (
   // for loop
   always_comb begin
     y_loop_o = '0;
-    for (i = 0; i < 4; i++) begin 
+    for (int i = 0; i < 4; i++) begin 
       y_loop_o = (sel_i[i] & a_i[i]) | y_loop_o;
     end  
   end
